@@ -47,6 +47,8 @@ The software stack is primarily **Python-based**, utilizing the following key li
            | - Control Commands via Radio|
            +----------------------------+
 
+![System Diagram](images/SystemAssembly.png)
+
 ---
 
 ## **Implementation Procedure**  
