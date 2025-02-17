@@ -49,6 +49,9 @@ The software stack is primarily **Python-based**, utilizing the following key li
 
 ![System Diagram](images/SystemAssembly.png)
 
+### **Software Hierarchy**
+![Software Hierarchy](images/SoftwareHierarchy.png)
+
 ---
 
 ## **Implementation Procedure**  
