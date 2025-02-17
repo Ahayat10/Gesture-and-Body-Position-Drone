@@ -1,10 +1,8 @@
 # Gesture and Body Position Drone  
-### **By Amna Hayat, Calvin Li, Nicholas Prakoso, Renzheng Zheng**  
-
-![Crazyflie Drone](https://bitcraze.io/wp-content/uploads/2021/04/crazyflie-2.1-800x600.jpg)  
+### **By: Amna Hayat, Calvin Li, Nicholas Prakoso, Renzheng Zheng**  
 
 ## **Overview**  
-This project showcases one of the most challenging things I have ever built—a **gesture-controlled and "follow-me" drone** using machine learning and embedded systems. The project integrates **computer vision, drone flight control, and real-time gesture recognition** to enable a **Crazyflie 2.1 drone** to respond to hand gestures and body movements.
+This project showcases my culminating capstone project to design a **gesture-controlled and "follow-me" drone** using machine learning and embedded systems. The project integrates **computer vision, drone flight control, and real-time gesture recognition** to enable a **Crazyflie 2.1 drone** to respond to hand gestures and body movements.
 
 ## **Project Objective**  
 - Control a **Crazyflie drone** using **hand gestures**.  
@@ -35,3 +33,35 @@ The software stack is primarily **Python-based**, utilizing the following key li
 - **Bitcraze firmware & cfclient** → Drone control and communication  
 
 ### **System Diagram**
+             +---------------------------+
+             |       Crazyflie 2.1       |
+             |   - AI Deck (Camera)      |
+             |   - Flow Deck (Position)  |
+             |   - Multiranger Deck      |
+             +------------+--------------+
+                          |
+           +--------------+--------------+
+           |         Computer (PC)       |
+           | - Gesture & Pose Detection  |
+           | - Machine Learning Model    |
+           | - Control Commands via Radio|
+           +----------------------------+
+
+---
+
+## **Implementation Procedure**  
+### **Setup Environment**  
+1. Install **Bitcraze VM** (Virtual Machine) and update to the latest GitHub repository.  
+2. Use **Zadig** to configure the CrazyRadio dongle.  
+3. Set up **cfclient** in the VM.  
+4. Install **Docker** (only required for AI Deck updates).  
+5. Flash updated **Crazyflie firmware** with Flow Deck & Multiranger Deck.  
+6. Update **AI Deck firmware** and enable **WiFi**.  
+
+### **Gesture Recognition & Follow-Me Algorithm**  
+1. Use **MediaPipe** to extract **pose & hand landmarks**.  
+2. Normalize landmark coordinates and feed into a **Neural Network (NN)** for classification.  
+3. Map classified gestures to **drone flight commands**.  
+4. Implement **follow-me behavior** by tracking body movements in the camera feed.  
+
+---
